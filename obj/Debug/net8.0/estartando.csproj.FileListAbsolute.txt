@@ -1,0 +1,15 @@
+/Users/Wes/estartando/bin/Debug/net8.0/estartando
+/Users/Wes/estartando/bin/Debug/net8.0/estartando.deps.json
+/Users/Wes/estartando/bin/Debug/net8.0/estartando.runtimeconfig.json
+/Users/Wes/estartando/bin/Debug/net8.0/estartando.dll
+/Users/Wes/estartando/bin/Debug/net8.0/estartando.pdb
+/Users/Wes/estartando/obj/Debug/net8.0/estartando.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Wes/estartando/obj/Debug/net8.0/estartando.AssemblyInfoInputs.cache
+/Users/Wes/estartando/obj/Debug/net8.0/estartando.AssemblyInfo.cs
+/Users/Wes/estartando/obj/Debug/net8.0/estartando.csproj.CoreCompileInputs.cache
+/Users/Wes/estartando/obj/Debug/net8.0/estartando.sourcelink.json
+/Users/Wes/estartando/obj/Debug/net8.0/estartando.dll
+/Users/Wes/estartando/obj/Debug/net8.0/refint/estartando.dll
+/Users/Wes/estartando/obj/Debug/net8.0/estartando.pdb
+/Users/Wes/estartando/obj/Debug/net8.0/estartando.genruntimeconfig.cache
+/Users/Wes/estartando/obj/Debug/net8.0/ref/estartando.dll

@@ -1,0 +1,551 @@
+/*using System;
+
+namespace Exercicio1 
+{
+	public static class Program
+	{
+		public static void Main()
+		{
+			string funcionario = obterNomeFunc();
+			double salario = obterSalarioFunc();
+			Console.Clear();
+			double SalarioAtualizado = calcularSalarioAtt(salario, 0.25);
+			exibirInfoAtualizada(funcionario, salario, SalarioAtualizado);
+		}
+		private static string obterNomeFunc()
+		{
+			Console.WriteLine("Digite o nome do funcionário");
+			return Console.ReadLine();w
+		}
+		private static double obterSalarioFunc()
+		{
+			Console.WriteLine("Digite o salario do funcionário atual");
+			return Double.Parse(Console.ReadLine());
+		}
+		private static double calcularSalarioAtt(double salario, double percentualAumento)
+		{
+			double aumento = salario * percentualAumento;
+			return salario + aumento;
+		}
+		private static void exibirInfoAtualizada(string funcionario, double salario, double SalarioAtualizado)
+		{
+			Console.WriteLine ($"O salario do funcionário {funcionario} de {salario:C} com a acréscimo de 25% passou a ser {SalarioAtualizado:C}");
+		}
+	}
+}
+
+Segundo
+
+using System;
+
+namespace Exercicio2
+{
+	public static class Program
+	{
+		public static void Main()
+		{
+			string funcionario = ObterNomeFunc();
+			double salario = ObterSalarioFunc();
+			double percentual = ObterPercentualDeAumento();
+			double salarioAtt = ObterSalarioAtualizado(salario, percentual);
+			ExibirInfoAtualizada(funcionario,salario, percentual, salarioAtt);
+		}
+		private static string ObterNomeFunc()
+		{
+			Console.WriteLine("Digite o nome do funcionário");
+			return Console.ReadLine();
+		}
+		private static double ObterSalarioFunc()
+		{
+			Console.WriteLine($"Digite o salario atual do funcionário");
+			return double.Parse(Console.ReadLine());
+		}
+		private static double ObterPercentualDeAumento()
+		{
+			Console.WriteLine("Qual a porcentagem do aumento ?");
+			return double.Parse(Console.ReadLine());
+		}
+		private static double ObterSalarioAtualizado(double salario,double percentual)
+		{
+			double aumento = salario * (percentual/100);
+			return salario + aumento;
+		}
+		private static void ExibirInfoAtualizada(string funcionario, double salario, double percentual, double salarioAtt)
+		{
+			Console.WriteLine($"O salario do funcionário {funcionario} de {salario:C} com o acréscimo de {percentual}% é de {salarioAtt:C}");
+		}
+	}
+}
+
+Terceiro
+
+using System;
+namespace Exercicio3
+{
+	public static class Program
+	{
+		public static void Main()
+		{
+			DateTime anoAtual = DateTime.Now;
+			Console.WriteLine(anoAtual.ToString("dd/MM/yyyy"));
+			DateTime dataNasci = obterDataNasci();
+			int idadeEmAnos = obterIdade(anoAtual, dataNasci);
+			int idadeEmMeses = obterIdadeMeses(anoAtual, dataNasci);
+			int idadeEmDias = obterIdadeDias(anoAtual, dataNasci);
+			int idadeEmSemana = obterIdadeSemanas(idadeEmDias);
+			ExibirInfo(idadeEmAnos,idadeEmMeses, idadeEmSemana,idadeEmDias);
+		}
+		private static DateTime obterDataNasci()
+		{
+			Console.WriteLine("Digite a data do nascimento no formato DD/MM/AAAA\nExemplo: 17/09/1983");
+			return DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", null);
+		}
+		private static int obterIdade(DateTime AnoAtual, DateTime dataNasci)
+		{
+			int idade = AnoAtual.Year - dataNasci.Year;
+			return idade;
+		}
+		private static int obterIdadeMeses(DateTime anoAtual, DateTime dataNasci)
+		{
+			int meses = (anoAtual.Year - dataNasci.Year) * 12 + anoAtual.Month;
+			return meses;
+		}
+		private static int obterIdadeSemanas(int idadeEmDias)
+		{
+			int semanas = idadeEmDias / 7;
+			return semanas;
+		}
+		private static int obterIdadeDias(DateTime anoAtual, DateTime dataNasci)
+		{
+			int dias = (anoAtual - dataNasci).Days;
+			return dias;
+		}
+		private static void ExibirInfo(int idadeEmAnos, int idadeEmMeses, int idadeEmSemana, int idadeEmDias)
+		{
+			Console.WriteLine ($"Idade em anos {idadeEmAnos}");
+			Console.WriteLine ($"Idade em meses {idadeEmMeses}");
+			Console.WriteLine ($"Idade em semanas {idadeEmSemana}");
+			Console.WriteLine ($"Idade em dias {idadeEmDias}");
+		}
+	}
+}
+
+Quarto
+
+using System;
+
+namespace Exercicio4
+{
+	public static class Program
+	{
+		public static void Main ()
+		{
+			double quilo = obterQuilo();
+			double gramas = obterGramas(quilo);
+			double quantidade = obterQntdDiaria();
+			double racaoRestante = obterRestante(quantidade, gramas);
+			Console.WriteLine ($"após cinco dias você terá {racaoRestante} gramas de ração no saco");
+		}
+		private static double obterQuilo() 
+		{
+			Console.WriteLine("Digite a quantidade de ração em Quilos\nExemplo: 1 == 1KG");
+			return double.Parse(Console.ReadLine());
+		}
+		private static double obterGramas(double quilo)
+		{
+			double qntdGramas = quilo * 1000;
+			return qntdGramas;
+		}
+		private static double obterQntdDiaria ()
+		{
+			Console.WriteLine("Digite a quantidade de ração fornecida para cada animal em gramas");
+			return double.Parse(Console.ReadLine());
+		}
+		private static double obterRestante(double quantidade,double gramas)
+		{
+			double consumoDiario = quantidade * 2;
+			double consumoEmCincoDias = consumoDiario * 5;
+			return gramas - consumoEmCincoDias;
+		}
+	}
+}
+
+Quinto
+
+using System;
+
+namespace Exercicio5
+{
+	public static class Program
+	{
+		public static void Main()
+		{
+			int a = 9;
+			int b = 7;
+			Console.WriteLine($"A = {a}\nB = {b}");
+			Console.WriteLine("========================");
+			int c = a;
+			a = b;
+			b = c;
+			Console.WriteLine("========================");
+			Console.WriteLine($"A = {a}\nB = {b}");
+			
+			
+			Console.WriteLine("========================");
+			Console.WriteLine("========================");
+			
+            // com tuplas 
+			int y = 65;
+			int x = 99;
+			Console.WriteLine ($"A ={y}\n B = {x}");
+			Console.WriteLine("========================");
+			(y, x) = (x,y);
+			Console.WriteLine("========================");
+			Console.WriteLine ($"A ={y}\n B = {x}");
+		}
+	}
+}
+Exercício 6
+using System;
+namespace Exercicio6
+{
+	public static class Program
+	{
+		public static void Main()
+		{
+			int comprimento = obterComprimento();
+			int largura = obterLargura();
+			int altura = obterAltura();
+			int volume = obterVolume(comprimento, largura, altura);
+			ExibirInfo(volume);
+		}
+		private static int obterComprimento()
+		{
+			Console.WriteLine("Digite o valor do comprimento");
+			return int.Parse(Console.ReadLine());
+		}
+		private static int obterLargura()
+		{
+			Console.WriteLine("Digite o valor da largura");
+			return int.Parse(Console.ReadLine());
+		}
+		private static int obterAltura()
+		{
+			Console.WriteLine("Digite o valor da altura");
+			return int.Parse(Console.ReadLine());
+		}
+		private static int obterVolume(int comprimento,  int altura, int largura)
+		{
+          int volume = comprimento * altura * largura;
+		  return volume;
+		}
+		private static void ExibirInfo(int volume)
+		{
+			Console.WriteLine($"O volume da caixa é {volume}cm³");
+		}
+	}
+}
+Exercicio 7
+
+
+using System;
+namespace Exercicio7
+{
+	public static class Program
+	{
+		public static void Main()
+		{	
+			Console.WriteLine("Digite o primeiro número");
+			int a = obterValor();
+			Console.WriteLine("Digite o segundo número");
+			int b = obterValor();
+			int resultado = obterResultado(a,b);
+			int quadrado = obterQuadradoDaDiferen(resultado);
+			Console.WriteLine($"O quadrado da diferença entre {a} em relação a {b} é de {quadrado}");
+		}
+		private static int obterValor()
+		{
+			return int.Parse(Console.ReadLine());
+		}
+		private static int obterResultado (int a, int b)
+		{
+			int resultado = a-b;
+			return resultado;
+		}
+		private static int obterQuadradoDaDiferen (int resultado)
+		{
+			int quadrado = resultado * resultado;
+			return quadrado;
+		}
+	}
+}
+Exercicio 8
+
+using System;
+
+namespace Exercicio8
+{
+	public static class Program 
+	{
+		public static void Main()
+		{
+			double reais = obterReais();
+			double dolar = obterValorDolar();
+			double conversao = obterConversao(reais, dolar);
+			ExibirInfo(reais,conversao);
+		}
+		private static double obterReais()
+		{
+			Console.WriteLine("Digite o valor que possui em R$");
+			return double.Parse(Console.ReadLine());
+		}
+		private static double obterValorDolar()
+		{
+			Console.WriteLine("Qual a cotação do dólar atualmente ?");
+			return double.Parse(Console.ReadLine());
+		}
+		private static double obterConversao(double reais, double dolar)
+		{
+			double conversao = reais / dolar;
+			return conversao;
+		}
+		private static void ExibirInfo(double reais, double conversao)
+		{
+			Console.WriteLine($"O valor de {reais:C} em dólar é de $ {conversao:f2}");
+		}
+	}
+}
+Exercicio 9
+
+using System;
+
+namespace Exercicio9 
+{
+	public static class Program
+	{
+		public static void Main()
+		{
+			(int A, int B, int C) = obterValor();
+			int soma = A + B + C;
+			double quadradoDaSoma = Math.Pow(soma, 2);
+			Console.WriteLine($"O valor do quadrado da soma é de {quadradoDaSoma}");
+		}
+		private static (int,int,int) obterValor()
+		{
+			Console.WriteLine("Escreva os valores de A B e C separados por espaço.");
+			string [] input = Console.ReadLine().Split();
+			int A = int.Parse(input[0]);
+			int B = int.Parse(input[1]);
+			int C = int.Parse(input[2]);
+			
+			return (A, B, C);
+		}
+	}
+}
+Exercício 10
+
+using System;
+using System.Threading;
+
+namespace exercicio10
+{
+    public static class Program
+    {
+        enum Menu { Somar = 1, Subtrair, Dividir, Multiplicar, Sair }
+
+        public static void Main()
+        {   
+            bool escolheuSair = false;
+
+            while (!escolheuSair)
+            {
+                Console.Clear();
+
+                Console.WriteLine("[1] Somar \n[2] Subtrair\n[3] Dividir\n[4] Multiplicar\n[5] Sair");
+                int opcInt = int.Parse(Console.ReadLine());
+                Menu opcMenu = (Menu)opcInt;
+
+                if (opcMenu != Menu.Sair)
+                {
+                    (int A, int B) = obterValores();
+
+                    switch (opcMenu)
+                    {
+                        case Menu.Somar:
+                            Console.WriteLine($"Resultado da soma: {obterSoma(A, B)}");
+                            break;
+                        case Menu.Subtrair:
+                            Console.WriteLine($"Resultado da subtração: {obterSubtracao(A, B)}");
+                            break;
+                        case Menu.Dividir:
+                            Console.WriteLine($"Resultado da divisão: {obterDivisao(A, B)}");
+                            break;
+                        case Menu.Multiplicar:
+                            Console.WriteLine($"Resultado da multiplicação: {obterMultiplicacao(A, B)}");
+                            break;
+                        default:
+                            Console.WriteLine("Opção inválida.");
+                            break;
+                    }
+
+                    Console.WriteLine("\nPressione qualquer tecla para continuar...");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    escolheuSair = true;
+                    Console.WriteLine("Programa encerrado.");
+                    Thread.Sleep(2000);
+                }
+            }
+        }
+
+        private static (int, int) obterValores()
+        {
+            Console.WriteLine("\nDigite o valor do primeiro número:");
+            int A = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite o valor do segundo número:");
+            int B = int.Parse(Console.ReadLine());
+
+            return (A, B);
+        }
+
+        private static int obterSoma(int A, int B)
+        {
+            return A + B;
+        }
+
+        private static int obterSubtracao(int A, int B)
+        {
+            return A - B;
+        }
+
+        private static double obterDivisao(int A, int B)
+        {
+            if (B == 0)
+            {
+                Console.WriteLine("Erro: Divisão por zero não é permitida.");
+                return double.NaN;
+            }
+            return (double)A / B;
+        }
+
+        private static int obterMultiplicacao(int A, int B)
+        {
+            return A * B;
+        }
+    }
+}
+Exercício 11
+using System;
+
+namespace Exercicio11
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            double raio = obterRaio();
+            double volume = calcularVolumeEsfera(raio);
+            exibirVolume(volume);
+        }
+
+        private static double obterRaio()
+        {
+            Console.WriteLine("Digite o valor do raio da esfera:");
+            double raio = double.Parse(Console.ReadLine());
+            return raio;
+        }
+
+        private static double calcularVolumeEsfera(double raio)
+        {
+            const double pi = 3.14159;
+            double volume = (4.0 / 3.0) * pi * Math.Pow(raio, 3);
+            return volume;
+        }
+
+        private static void exibirVolume(double volume)
+        {
+            Console.WriteLine($"O volume da esfera é: {volume}");
+        }
+    }
+}
+Exercicio 12
+using System;
+namespace Exercicio12
+{
+	public static class Program
+	{
+		public static void Main()
+		{
+			int A = obterNumero();
+			int sucessor = obterSucessor(A);
+			int antecessor= obterAntecessor(A);
+			exibirInfo(A,sucessor, antecessor);
+		}
+		private static int obterNumero()
+		{
+			Console.WriteLine("Digite o numero que deseja");
+			return int.Parse(Console.ReadLine());
+		}
+		private static int obterSucessor(int A)
+		{
+			int sucessor = A + 1;
+			return sucessor;
+		}
+		private static int obterAntecessor(int A)
+		{
+			int antecessor = A - 1;
+			return antecessor;
+		}
+		private static void exibirInfo(int A, int sucessor, int antecessor)
+		{
+			Console.WriteLine($"O número escolhido foi {A}, seu sucessor é {sucessor} e seu antecessor é {antecessor}");
+		}
+	}
+}
+Exercicio 13 A 
+using System;
+
+namespace Exercicio13A
+{
+	public static class Program
+	{
+		public static void Main()
+		{
+			int a, b, c, soma, dif;
+			a = 2;
+			b = 3;
+			c = 4;
+			dif = 5;
+			
+			soma = a+b+c-dif;
+			dif = soma ^ 2;
+			a = c;
+			b = -3;
+			Console.WriteLine($"{a}\n{b}\n{c}\n{soma}\n{dif}");
+		}
+	}
+}
+Exercicio 13 b
+*/using System;
+namespace Exercicio13B
+{
+	public static class Program
+	{
+		public static void Main()
+		{
+			int x,y,resto,quociente;
+			x = 25;
+			y = 52;
+			resto = y%x;
+			quociente = y /x;
+			x = resto;
+			y = quociente;
+			resto = x % y;
+			quociente = x/y;
+			Console.WriteLine($"resto {resto}\nquociente {quociente}");
+		}
+	}
+} 

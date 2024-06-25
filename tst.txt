@@ -1,0 +1,38 @@
+using System;
+namespace Exercicio30PDF2
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            int A = obterNumero();
+            exibirTabuada(A);
+        }
+        public static void exibirTabuada(int A)
+        {
+            Console.WriteLine($"{A} x 1 = {A*1}\n{A} x 2 = {A*2}\n{A} x 3 = {A*3}\n{A} x 4 = {A*4}\n{A} x 5 = {A*5}\n{A} x 6 = {A*6}\n{A} x 7 = {A*7}\n{A} x 8 = {A*8}\n{A} x 9 = {A*9}\n{A} x 10 = {A*10}");
+        }
+        public static int obterNumero()
+        {
+            int A = ObterValoresValidos("A");
+           return A;
+        }
+        private static int ObterValoresValidos(string valorRef)
+        {
+            int numero;
+            string input;
+            bool valido;
+            do
+            {
+                Console.WriteLine($"Digite o valor {valorRef}:");
+                input = Console.ReadLine();
+                valido = int.TryParse(input, out numero);
+                if (!valido)
+                {
+                    Console.WriteLine("Insira um valor numérico válido!");
+                }
+            } while (!valido);
+            return numero;
+        }
+    }
+}
